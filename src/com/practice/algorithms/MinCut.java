@@ -10,7 +10,7 @@ import java.util.Random;
 
 public class MinCut {
 
-	private static final String pathfile = "/home/rayudu/Desktop/_f370cd8b4d3482c940e4a57f489a200b_kargerMinCut.txt";
+	private static final String pathfile = "KagerMincut.txt";
 
 	private static List<Integer> vList;
 	private static HashMap<Integer, List<Integer>> adjList;
