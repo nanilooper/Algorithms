@@ -50,5 +50,31 @@ public class Graph {
 		validateVertex(v);
 		return adj[v];
 	}
+	
+	public Graph reverse(Graph g){
+		Graph rev = new Graph(g.V());
+		for(int i = 1 ; i<g.V()+1;i++){
+			for(int j : g.adj(i)){
+				rev.addEdge(j, i);
+			}
+		}
+		return rev;
+	}
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 }
