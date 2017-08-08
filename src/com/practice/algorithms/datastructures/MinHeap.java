@@ -50,27 +50,22 @@ public class MinHeap<T extends Comparable<T>> {
 		T min = heap[1];
 		heap[1] = heap[size--];
 		heapify(1);
+		heap[size + 1] = null;
 		return min;
 	}
 
 	// all subtress of i already holds min-heap property,call this method to heapify entire array
 	public void heapify(int i) {
-		if (2 * i > size) {
-			return;
-		} else if (2 * i + 1 > size) {
-			if (heap[i].compareTo(heap[2 * i]) > 0) {
-				swap(i, 2 * i);
-				heapify(2 * i);
+		while (2 * i <= size) {
+			int child = 2 * i;
+			if (heap[child].compareTo(heap[child + 1]) > 0 && child < size) {
+				child++;
 			}
-		} else {
-			if (heap[i].compareTo(heap[2 * 1]) < 0 && heap[i].compareTo(heap[2 * 1 + 1]) < 0) {
-				return;
-			} else if (heap[i].compareTo(heap[2 * 1]) > 0 && heap[2 * i].compareTo(heap[2 * 1 + 1]) < 0) {
-				swap(i, 2 * i);
-				heapify(2 * i);
+			if (heap[child].compareTo(heap[i]) < 0) {
+				swap(child, i);
+				i = child;
 			} else {
-				swap(i, 2 * i + 1);
-				heapify(2 * i + 1);
+				break;
 			}
 		}
 
@@ -78,10 +73,6 @@ public class MinHeap<T extends Comparable<T>> {
 
 	public T getMin() {
 		return heap[1];
-	}
-
-	public T get(int i) {
-		return heap[i];
 	}
 
 	public boolean isEmpty() {
