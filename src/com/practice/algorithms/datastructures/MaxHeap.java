@@ -29,6 +29,10 @@ public class MaxHeap<T extends Comparable<T>> {
 	public T getMax() {
 		return heap[1];
 	}
+	
+	public int getSize(){
+		return size;
+	}
 
 	private void swim(int i) {
 		while (i > 1) {

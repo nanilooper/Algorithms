@@ -78,6 +78,10 @@ public class MinHeap<T extends Comparable<T>> {
 	public boolean isEmpty() {
 		return size < 1;
 	}
+	
+	public int getSize(){
+		return size;
+	}
 
 	public void swap(int t1, int t2) {
 		T temp = heap[t1];
