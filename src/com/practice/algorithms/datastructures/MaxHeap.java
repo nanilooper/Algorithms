@@ -29,8 +29,8 @@ public class MaxHeap<T extends Comparable<T>> {
 	public T getMax() {
 		return heap[1];
 	}
-	
-	public int getSize(){
+
+	public int getSize() {
 		return size;
 	}
 
@@ -64,6 +64,10 @@ public class MaxHeap<T extends Comparable<T>> {
 		T temp = heap[i];
 		heap[i] = heap[j];
 		heap[j] = temp;
+	}
+
+	public boolean isEmpty() {
+		return size <= 0;
 	}
 
 	public static void main(String[] args) {
