@@ -17,33 +17,33 @@ class Job implements Comparable<Job> {
 	}
 
 	// greedy for w/l
-	// @Override
-	// public int compareTo(Job j) {
-	// double d = w / l - j.w / j.l;
-	// if (d > 0) {
-	// return 1;
-	// } else if (d < 0) {
-	// return -1;
-	// } else {
-	// return 0;
-	// }
-	// }
-
 	@Override
 	public int compareTo(Job j) {
-		double d = w - l - (j.w - j.l);
+		double d = w / l - j.w / j.l;
 		if (d > 0) {
 			return 1;
-		} else if (d == 0 && w > j.w) {
-			return 1;
 		} else if (d < 0) {
-			return -1;
-		} else if (d == 0 && w < j.w) {
 			return -1;
 		} else {
 			return 0;
 		}
 	}
+
+	// @Override
+	// public int compareTo(Job j) {
+	// double d = w - l - (j.w - j.l);
+	// if (d > 0) {
+	// return 1;
+	// } else if (d == 0 && w > j.w) {
+	// return 1;
+	// } else if (d < 0) {
+	// return -1;
+	// } else if (d == 0 && w < j.w) {
+	// return -1;
+	// } else {
+	// return 0;
+	// }
+	// }
 }
 
 public class JobsScheduler {

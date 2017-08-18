@@ -18,7 +18,7 @@ public class MST {
 
 	public MST(WeightedGraph G) {
 		marked = new boolean[G.V() + 1];
-		mst(G, 1);
+		mst(G, 10);
 	}
 
 	private void mst(WeightedGraph G, int s) {
