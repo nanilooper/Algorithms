@@ -6,24 +6,28 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
-//class Node implements Comparable<Node>{
-//	int v;
-//	int w;
-//	Node(int v,int w){
-//		this.v=v;
-//		this.w=w;
-//	}
-//	@Override
-//	public int compareTo(Node o) {
-//		if(this.w>o.w){
-//			return 1;
-//		}
-//		if(this.w<o.w){
-//			return -1;
-//		}
-//		return 0;
-//	}
-//}
+
+class Node implements Comparable<Node> {
+	int v;
+	int w;
+
+	Node(int v, int w) {
+		this.v = v;
+		this.w = w;
+	}
+
+	@Override
+	public int compareTo(Node o) {
+		if (w > o.w) {
+			return 1;
+		}
+		if (w < o.w) {
+			return -1;
+		}
+		return 0;
+	}
+}
+
 public class KnapSackSmall {
 	private int numItems;
 	private int capacity;
@@ -35,7 +39,7 @@ public class KnapSackSmall {
 		dp = new int[numItems + 1][capacity + 1];
 		for (int j = 0; j <= capacity; j++) {
 			dp[0][j] = 0;
-			if (values[1] > j) {
+			if (weights[1] > j) {
 				dp[1][j] = 0;
 			} else {
 				dp[1][j] = values[1];
@@ -60,37 +64,37 @@ public class KnapSackSmall {
 
 	public static void main(String[] args) throws FileNotFoundException {
 
+		// Scanner scan = new Scanner(new File("KnapSackSmall.txt"));
+		// int capacity = scan.nextInt();
+		// int numItems = scan.nextInt();
+		// int[] values = new int[numItems + 1];
+		// int[] weights = new int[numItems + 1];
+		// for (int i = 1; i <= numItems; i++) {
+		// values[i] = scan.nextInt();
+		// weights[i] = scan.nextInt();
+		// }
+		// scan.close();
+		// KnapSackSmall ks = new KnapSackSmall(numItems, values, weights, capacity);
+		// System.out.println(ks.getMaxValue());
+
 		Scanner scan = new Scanner(new File("KnapSackSmall.txt"));
 		int capacity = scan.nextInt();
 		int numItems = scan.nextInt();
 		int[] values = new int[numItems + 1];
 		int[] weights = new int[numItems + 1];
-		for (int i = 1; i <= numItems; i++) {
-			values[i] = scan.nextInt();
-			weights[i] = scan.nextInt();
+		List<Node> list = new ArrayList<>();
+		for (int i = 0; i < numItems; i++) {
+			list.add(new Node(scan.nextInt(), scan.nextInt()));
 		}
 		scan.close();
+		Collections.sort(list);
+		Collections.reverse(list);
+		for (int i = 0; i < list.size(); i++) {
+			values[i + 1] = list.get(i).v;
+			weights[i + 1] = list.get(i).w;
+		}
 		KnapSackSmall ks = new KnapSackSmall(numItems, values, weights, capacity);
 		System.out.println(ks.getMaxValue());
-		
-//		
-//		Scanner scan = new Scanner(new File("KnapSackSmall.txt"));
-//		int capacity = scan.nextInt();
-//		int numItems = scan.nextInt();
-//		int[] values = new int[numItems + 1];
-//		int[] weights = new int[numItems + 1];
-//		List<Node> list  = new ArrayList<Node>();
-//		for (int i = 0; i < numItems; i++) {
-//			list.add(new Node(scan.nextInt(),scan.nextInt()));
-//		}
-//		scan.close();
-//		Collections.sort(list);
-//		for(int i = 1 ; i<list.size();i++){
-//			values[i] = list.get(i-1).v;
-//			weights[i] = list.get(i-1).w;
-//		}
-//		KnapSackSmall ks = new KnapSackSmall(numItems, values, weights, capacity);
-//		System.out.println(ks.getMaxValue());
 
 	}
 
