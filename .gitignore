@@ -3,5 +3,7 @@ bin/*
 .classpath
 .project
 .gitignore
+/python_code/__pycache__/*
+*/__pycache__/*
 
 /bin/
