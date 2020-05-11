@@ -1,4 +1,4 @@
-package com.practice.algorithms;
+package com.practice.algorithms.general;
 
 import java.io.BufferedReader;
 import java.io.FileReader;

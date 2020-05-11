@@ -1,4 +1,4 @@
-package com.practice.algorithms;
+package com.practice.algorithms.sorting;
 
 import java.io.BufferedReader;
 import java.io.FileReader;

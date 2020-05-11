@@ -1,4 +1,4 @@
-package com.practice.algorithms;
+package com.practice.algorithms.sorting;
 
 public class MergeSort {
 
@@ -54,8 +54,6 @@ public class MergeSort {
 	}
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
 		int[] a = { 8, 5, 9, 2, 2, 4, 6, 8, 22, 1 };
 		mergeSort(a);
 		System.out.println(a[0]);
